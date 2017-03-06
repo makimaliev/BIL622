@@ -1,0 +1,63 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{datetime}
+\usepackage{listings}
+\usepackage{graphics}
+\usepackage{svg}
+\newdate{date}{17}{02}{2017}
+\date{\displaydate{date}}
+
+\title{Homework 1\\Marlen Akimaliev\\BIL622-Numerical Analysis II}
+%\author{Share\LaTeX}
+
+\begin{document}
+
+\maketitle
+
+\section{Solve $y'=(x \times y^2+x)/(y-x^2 \times y)$ using Euler and Runge–Kutta 3 methods}
+Euler’s method for numerically approximating the solution of a first-order initial value problem $y'=f(x,y)$, $y(x_0) = y_0$ as a table of values. To start, we must decide the interval $[x_0 ,x_f]$ that we want to find a solution on, as well as the number of points n that we wish to approximate in that interval. Then taking $\Delta x = (x_f-x_0)/(n-1)$ we have $n$ evenly spaced points $x_0, x_1,..., x_n$, with $x_j = x_0+j\times \Delta x$. Then our objective is then to fill in the values of $y(x_i)$ in the table. Let’s use Euler’s method to approximate the value of the function in the interval [0.0, 0.9] with 10 points. Then $x_0 = 0, y_0 = 1, x_f = 0.9, n = 10$, and $\Delta x = (x_f-x_0 )/(n-1)=0.1$. I have the following Python script to evaluate these values:
+\begin{lstlisting}[language=Python]
+import numpy as np
+from matplotlib import pyplot as plt
+x0 = 0
+y0 = 1
+xf = 0.9
+n = 10
+deltax = (xf-x0)/(n-1)
+x = np.linspace(x0, xf, n)
+y = np.zeros([n])
+y[0] = y0
+for i in range(1,n):
+    y[i]=deltax*((x[i]*y[i-1]^2+x[i])/(y[i-1]-x[i]^2*y[i-1]))+y[i-1]
+for i in range(n):
+    print(x[i], y[i])
+
+plt.plot(x,y,'o')
+plt.xlabel("Value of x")
+plt.ylabel("Value of y")
+plt.title("Approximate solution of with Euler's Method")
+plt.show()
+\end{lstlisting}
+I have chosen the interval [0.0, 0.9] because at point $1.0$ value of function will be infinite. If we try to plot the graph of this functions result will be as follows:
+\begin{figure}[htbp]
+  \centering
+  \includesvg{1.svg}
+  \caption{svg image}
+\end{figure}
+
+\section{Solve $y'=(1-2*x)/y^2$ using Modified Euler method 1 and Runge-Kutta 3 method}
+\section{Solve $y'=e^{x}-1$ using Modified Euler method 2 and Runge-Kutta 4 method}
+\section{Solve $y'=(y^2-y)/x^2$ using Euler method and Runge-Kutta 4 method}
+\section{Solve $y'=(1+y)/tan{x}$ using Modified Euler method 1 and Runge-Kutta 4 method}
+
+\medskip
+
+\begin{thebibliography}{9}
+\bibitem{latexcompanion} Michel Goossens, Frank Mittelbach, and Alexander Samarin. \textit{The \LaTeX\ Companion}. Addison-Wesley, Reading, Massachusetts, 1993.
+\bibitem{wiki} Wikipedia Info, \\\texttt{https://en.wikipedia.org/wiki/LaTeX}
+\bibitem{book} Wikibook, \\\texttt{https://en.wikibooks.org/wiki/LaTeX}
+\bibitem{gScholar} Google Scholar, \\\texttt{https://scholar.google.com/}
+\bibitem{matlab} Matlab Tutorials, \\\texttt{https://www.mathworks.com/support/learn-with-matlab-tutorials.html}
+\end{thebibliography}
+
+\end{document}
