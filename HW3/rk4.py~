@@ -24,7 +24,6 @@ def rk4(x, y, u, n, h):
 		x = x + h
 		y = y + (h/6.)*(m1+(2.*m2)+(2.*m3) + m4)
 		u = u + (h/6.)*(k1+(2.*k2)+(2.*k3) + k4)
-		print x,y
 		return x,y
  
 def y(x):
