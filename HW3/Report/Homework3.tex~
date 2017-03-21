@@ -3,7 +3,7 @@
 \usepackage{datetime}
 \usepackage{listings}
 \usepackage{graphicx}
-\newdate{date}{17}{03}{2017}
+\newdate{date}{24}{03}{2017}
 \date{\displaydate{date}}
 
 \title{Homework 3\\Marlen Akimaliev\\BIL622-Numerical Analysis II}
@@ -21,7 +21,7 @@ $y'=u$\\
 $u'=f(x,y,u)$\\
 In our case it will be as follows:\\
 Equations is given as: $(x^2+1)y"-2xy'=0; y(0)=1;y'(0)=3$\\
-Splitting into 2:
+Splitting into 2:\\
 $y"=2xy'/(x^2+1)$ or the $f(x,y,y')$\\
 $u'=2xu/(x^2+1)$ or the $f(x,y,u)$\\
 Solution for 6 points as a table in the interval $[0, 0.5]$ is as follows:

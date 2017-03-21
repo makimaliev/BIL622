@@ -3,7 +3,7 @@
 \usepackage{datetime}
 \usepackage{listings}
 \usepackage{graphicx}
-\newdate{date}{17}{03}{2017}
+\newdate{date}{24}{03}{2017}
 \date{\displaydate{date}}
 
 \title{Homework 2\\Marlen Akimaliev\\BIL622-Numerical Analysis II}
@@ -65,10 +65,6 @@ plt.plot( vx, yx, label='exact' )
 plt.title( "Euler's Method Example")
 plt.xlabel('Value of x') 
 plt.ylabel('Value of y')
-plt.legend(loc=4)
-plt.grid()
-plt.savefig( '1_1.eps', fmt='EPS', dpi=100 )
-plt.show()
 \end{lstlisting}
 Error value equals to $0.029578291528$.\\
 If we try to plot these values and the exact function as a graph result is as follows:
