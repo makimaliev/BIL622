@@ -8,6 +8,7 @@
 from math import *
 from ode import *
 #from matplotlib import pyplot as plt
+from graphlib import *
 
 def Func(t, y, f):                                 # Right-hand sides of ODEs
 	f[1] =  y[2]
@@ -38,13 +39,5 @@ while (t+ht <= tmax):                                      # propagation loop
    out.write(("{0:10.5f}{1:10.5f}{2:10.5f}{3:10.5f}\n"). \
              format(t,y[1],y[2],y[1]*y[1]+y[2]*y[2]))
 out.close()
-'''
-plt.plot(y[1], y[2], linestyle='--')
-plt.title("Euler method")
-plt.xlabel('Value of x') 
-plt.ylabel('Value of y')
-plt.legend(loc=4)
-plt.grid()
-#plt.savefig( '1_1.eps', fmt='EPS', dpi=100 )
-plt.show()
-'''
+
+Plot(y1,y2,nt,"red",2,0.10,0.45,0.15,0.85,"y","y'","Euler method")
