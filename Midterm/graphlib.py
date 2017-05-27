@@ -4,7 +4,7 @@
 #----------------------------------------------------------------------------
 from math import *
 from utils import *
-from tkinter import *
+from Tkinter import *
 
 root = Tk()                                           # create Tk root widget
 root.title("graphlib v1.0")
